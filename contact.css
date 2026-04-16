@@ -1,0 +1,129 @@
+/* AMORIA FONT */
+@font-face {
+    font-family: 'Amoria';
+    src: url('fonts/Amoria.ttf');
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Amoria', serif;
+    background: #f3e8ff;
+}
+
+/* LOGO */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+.main-logo {
+    font-size: 50px;
+}
+
+/* NAV BAR */
+.nav-bar {
+    background-color: #6a1b9a;
+    padding: 15px 0;
+}
+
+.nav-bar ul {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.nav-bar li {
+    list-style: none;
+}
+
+/* NAV TEXT */
+.nav-bar a {
+    font-family: "Times New Roman", Times, serif;
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+/* SPARKLE */
+.nav-bar a::after {
+    content: " ✨";
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.nav-bar a:hover::after {
+    opacity: 1;
+}
+
+/* CONTACT BOX */
+.contact-container {
+    width: 400px;
+    margin: 80px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(123, 63, 228, 0.2);
+    text-align: center;
+}
+
+.contact-container h2 {
+    color: #6a1b9a;
+    margin-bottom: 10px;
+}
+
+.contact-container p {
+    margin-bottom: 25px;
+    color: #777;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-size: 14px;
+}
+
+input, textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* FOCUS */
+input:focus, textarea:focus {
+    border-color: #6a1b9a;
+    box-shadow: 0 0 5px rgba(106, 27, 154, 0.3);
+}
+
+/* BUTTON */
+button {
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #6a1b9a;
+    color: white;
+    font-size: 16px;
+    font-family: 'Amoria', serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #4a148c;
+    transform: scale(1.03);
+}

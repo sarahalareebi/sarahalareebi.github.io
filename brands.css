@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'Amoria';
+    src: url('fonts/Amoria.otf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Amoria', serif;
+    background: linear-gradient(to bottom, #ffffff, #f3e8ff);
+    color: #4b0082;
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+    letter-spacing: 3px;
+}
+
+/* Section */
+.brands-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Title */
+.brands-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* List styling */
+.brands-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Each item */
+.brands-list li {
+    background-color: white;
+    margin: 10px auto;
+    padding: 15px;
+    width: 250px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+/* Hover effect (soft glam feel) */
+.brands-list li:hover {
+    background-color: #e9d5ff;
+    transform: scale(1.05);
+    cursor: pointer;
+}

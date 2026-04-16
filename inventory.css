@@ -1,0 +1,124 @@
+/* AMORIA FONT */
+@font-face {
+    font-family: 'Amoria';
+    src: url('fonts/Amoria.ttf');
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Amoria', serif;
+    background: #f3e8ff;
+}
+
+/* LOGO */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+.main-logo {
+    font-size: 50px;
+}
+
+/* NAV BAR */
+.nav-bar {
+    background-color: #6a1b9a;
+    padding: 15px 0;
+}
+
+.nav-bar ul {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.nav-bar li {
+    list-style: none;
+}
+
+/* NAV TEXT */
+.nav-bar a {
+    font-family: "Times New Roman", Times, serif;
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+/* SPARKLE */
+.nav-bar a::after {
+    content: " ✨";
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.nav-bar a:hover::after {
+    opacity: 1;
+}
+
+/* INVENTORY BOX */
+.inventory-container {
+    width: 80%;
+    margin: 60px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(123, 63, 228, 0.2);
+    text-align: center;
+}
+
+.inventory-container h2 {
+    color: #6a1b9a;
+    margin-bottom: 10px;
+}
+
+.inventory-container p {
+    margin-bottom: 30px;
+    color: #777;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #6a1b9a;
+    color: white;
+    padding: 12px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* STATUS COLORS */
+.in-stock {
+    color: green;
+    font-weight: bold;
+}
+
+.low-stock {
+    color: orange;
+    font-weight: bold;
+}
+
+.out-stock {
+    color: red;
+    font-weight: bold;
+}
+
+/* ROW HOVER */
+tr:hover {
+    background: #f9f3ff;
+}

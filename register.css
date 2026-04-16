@@ -1,0 +1,127 @@
+/* LOAD AMORIA FONT */
+@font-face {
+    font-family: 'Amoria';
+    src: url('fonts/Amoria.ttf') format('truetype');
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Amoria', serif;
+    background: linear-gradient(to right, #fdfbff, #f3e8ff);
+    color: #3b2a4a;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: #7b3fe4;
+}
+
+/* NAV LINKS */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #3b2a4a;
+    position: relative;
+}
+
+/* SPARKLE EFFECT */
+nav a::after {
+    content: " ✨";
+    opacity: 0;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    opacity: 1;
+}
+
+/* REGISTER BOX */
+.register-container {
+    width: 400px;
+    margin: 80px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(123, 63, 228, 0.15);
+    text-align: center;
+}
+
+.register-container h2 {
+    font-size: 30px;
+    color: #7b3fe4;
+    margin-bottom: 10px;
+}
+
+.register-container p {
+    font-size: 14px;
+    margin-bottom: 25px;
+    color: #777;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-size: 14px;
+}
+
+input, select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+/* FOCUS */
+input:focus, select:focus {
+    border-color: #7b3fe4;
+    box-shadow: 0 0 5px rgba(123, 63, 228, 0.3);
+}
+
+/* BUTTON */
+button {
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #7b3fe4;
+    color: white;
+    font-size: 16px;
+    font-family: 'Amoria', serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #5a2ec2;
+    transform: scale(1.03);
+}
+

@@ -1,0 +1,125 @@
+/* FONT */
+@font-face {
+    font-family: 'Amoria';
+    src: url('fonts/Amoria.otf');
+}
+
+/* BODY */
+body {
+    margin: 0;
+    background-color: #f6f3fb;
+    font-family: 'Times New Roman', Times, serif
+}
+
+/* LOGO */
+.logo {
+    font-family: 'Amoria', serif;
+    text-align: center;
+    font-size: 42px;
+    padding: 15px;
+    background-color: white;
+    letter-spacing: 2px;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #6a0dad;
+    text-align: center;
+    padding: 12px 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 18px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* TITLE */
+.title {
+    margin-left: 40px;
+    margin-top: 30px;
+}
+
+/* CONTAINER */
+.purchase-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+/* CARD */
+.card {
+    background-color: white;
+    padding: 20px;
+    width: 240px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGE */
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* TEXT */
+.card h3 {
+    margin: 10px 0 5px;
+}
+
+.price {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* STATUS */
+.status {
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.delivered {
+    background-color: #c8f7c5;
+    color: green;
+}
+
+.navbar a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    margin: 0 18px;
+    font-weight: bold;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+/* sparkle effect */
+.navbar a::after {
+    content: "✨";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.navbar a:hover::after {
+    top: -5px;
+    left: 100%;
+    opacity: 1;
+}
