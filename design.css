@@ -20,6 +20,35 @@ h1 {
 /* NAVIGATION */
 nav {
     margin-top: 10px;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    padding: 5px 0;
+    position: relative;
+}
+
+/* underline hover effect */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #a020f0;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+nav {
+    margin-top: 10px;
 }
 
 nav a {
@@ -41,8 +70,7 @@ main {
 /* CARDS */
 .cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));    gap: 15px;
     margin-top: 20px;
 }
 
@@ -55,7 +83,8 @@ main {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0px 8px 20px rgba(160,32,240,0.2);
 }
 
 .card h3 {
@@ -68,6 +97,13 @@ footer {
     text-align: center;
     padding: 15px;
     margin-top: 20px;
-    background-color: white;
+background-color: #f2f2f7;
     border-top: 1px solid #eee;
+}
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
 }
