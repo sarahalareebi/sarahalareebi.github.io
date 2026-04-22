@@ -21,4 +21,5 @@ It allows users to:
 ## Authors
 Sarah Al-Areebi
 Aliyah De Guzman
-Shomoy Mitchel
+Shomoy James-Mitchel
+Hiori Nazakato
