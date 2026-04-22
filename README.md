@@ -14,7 +14,7 @@ It allows users to:
 
 ## Features
 - Responsive navigation bar
-- Product pages for multiple brands
+- Lists products for multiple brands
 - Custom styling using Amoria font
 - Hover glow effects
 
