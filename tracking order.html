@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Orders - Glamstocks</title>
+    <link rel="stylesheet" href="delivery.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <h1 class="glam">GLAMSTOCKS</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="orders.html">Orders</a></li>
+            <li><a href="delivery.html">Delivery</a></li>
+            <li><a href="inventory.html">Inventory</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="brands we carry.html">Brands We Carry</a></li>
+            <li><a href="Register.html">Register</a></li>
+            <li><a href="tracking order.html">Tracking Orders</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="container" style="max-width: 800px;">
+            <h2>Track Your Order</h2>
+            <p>Enter your Order ID to view your shipment status.</p>
+
+            <div id="trackingInputSection" style="margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #fdfdfd;">
+                <label for="orderIDInput">Order ID:</label>
+                <input type="text" id="orderIDInput" placeholder="e.g. GS-6108" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+                
+                <button class="primary" id="trackBtn">Track Order</button>
+                <p id="errorMsg" style="color: red; margin-top: 10px; display: none; font-weight: bold;">❌ Order ID not found. Please check your ID and try again.</p>
+            </div>
+
+            <div id="trackingResult" style="display: none;">
+                <h3 style="margin-bottom: 15px; color: var(--primary-color);">Order Status Found</h3>
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--primary-color);">
+                            <th style="padding: 10px;">Order ID</th>
+                            <th>Brand</th>
+                            <th>Status</th>
+                            <th>Estimated Delivery</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orderTableBody">
+                        </tbody>
+                </table>
+                <button id="backBtn" style="margin-top: 20px; background: none; border: none; color: var(--primary-color); cursor: pointer; text-decoration: underline; font-weight: bold;">← Track another order</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mock Database for demo purposes
+            const orderData = [
+                { id: "GS-6108", brand: "Rare Beauty", status: "In Transit", date: "April 20, 2026" },
+                { id: "GS-1024", brand: "Saie", status: "Delivered", date: "April 12, 2026" },
+                { id: "GS-5590", brand: "Too Faced", status: "Processing", date: "April 22, 2026" },
+                { id: "GS-3312", brand: "NYX", status: "Shipped", date: "April 18, 2026" }
+            ];
+
+            const trackBtn = document.getElementById('trackBtn');
+            const inputSection = document.getElementById('trackingInputSection');
+            const resultSection = document.getElementById('trackingResult');
+            const tableBody = document.getElementById('orderTableBody');
+            const errorMsg = document.getElementById('errorMsg');
+
+            trackBtn.addEventListener('click', () => {
+                const idVal = document.getElementById('orderIDInput').value.trim();
+
+                // 1. GET the ID that was saved to the browser memory from the delivery page
+                const savedID = localStorage.getItem('latestOrderID');
+                
+                // 2. Check the mock database list
+                const foundInList = orderData.find(o => o.id.toUpperCase() === idVal.toUpperCase());
+
+                // 3. LOGIC: Check if it matches the list OR the newly saved ID from localStorage
+                if (foundInList || (savedID && idVal.toUpperCase() === savedID.toUpperCase())) {
+                    errorMsg.style.display = 'none';
+                    inputSection.style.display = 'none';
+                    resultSection.style.display = 'block';
+
+                    // Determine which data points to display
+                    const displayID = foundInList ? foundInList.id : savedID;
+                    const displayBrand = foundInList ? foundInList.brand : "Rare Beauty"; 
+                    const displayStatus = foundInList ? foundInList.status : "Processing";
+                    const displayDate = foundInList ? foundInList.date : new Date().toLocaleDateString();
+
+                    // Dynamic status pill colors 
+                    const statusBg = displayStatus === 'Delivered' ? '#d4edda' : '#fff3cd';
+                    const statusText = displayStatus === 'Delivered' ? '#155724' : '#856404';
+
+                    tableBody.innerHTML = `
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 15px; font-weight: bold;">${displayID}</td>
+                            <td>${displayBrand}</td>
+                            <td>
+                                <span style="padding: 5px 10px; border-radius: 15px; font-size: 12px; background: ${statusBg}; color: ${statusText};">
+                                    ${displayStatus}
+                                </span>
+                            </td>
+                            <td>${displayDate}</td>
+                        </tr>
+                    `;
+                } else {
+                    errorMsg.style.display = 'block';
+                }
+            });
+
+            // Reset view to allow tracking another order
+            document.getElementById('backBtn').addEventListener('click', () => {
+                resultSection.style.display = 'none';
+                inputSection.style.display = 'block';
+                document.getElementById('orderIDInput').value = "";
+            });
+        });
+    </script>
+
+    <footer class="site-footer">
+        <div class="footer-info">
+            <p>&copy; 2026 Glam Team | Glamstocks</p>
+            <div class="social-icons">
+                <a href="#"><img src="/images copy/download (1).png" alt="X"></a>
+                <a href="#"><img src="/images copy/download.jpeg" alt="Instagram"></a>
+                <a href="#"><img src="/images copy/images.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
