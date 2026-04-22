@@ -18,5 +18,7 @@ It allows users to:
 - Custom styling using Amoria font
 - Hover glow effects
 
-## Author
+## Authors
 Sarah Al-Areebi
+Aliyah De Guzman
+Shomoy Mitchel
