@@ -21,34 +21,43 @@
             <li><a href="contact.html">Contact</a></li>
             <li><a href="brands we carry.html">Brands We Carry</a></li>
             <li><a href="Register.html">Register</a></li>
+            <li><a href="tracking order.html">Tracking Orders</a></li>
         </ul>
     </nav>
 
     <main>
         <section class="container">
             <h2>Delivery Request</h2>
-
-            <form>
-
+            <form id="deliveryForm">
                 <label>Select Delivery Type:</label>
                 <div class="radio-group">
-                    <label><input type="radio" name="deliveryType"> Same-Day Delivery-fee ($20)</label>
-                    <label><input type="radio" name="deliveryType"> Standard Delivery-fee ($10)</label>
+                    <label>
+                        <input type="radio" name="deliveryType" value="20" required> Same-Day Delivery ($20)
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="deliveryType" value="10"> Standard Delivery ($10)
+                    </label>
                 </div>
 
+                <label for="deliveryDate">Select Delivery Date:</label>
+                <input type="date" id="deliveryDate" required>
 
-                <label>Select Delivery Date:</label>
-                <input type="date">
+                <div id="summaryBox" style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-left: 5px solid var(--primary-color); display: none;">
+                    <p><strong>Estimated Total:</strong> $<span id="totalCost">0</span></p>
+                    <p id="dateWarning" style="color: red; font-size: 12px;"></p>
+                </div>
 
                 <button class="primary" type="submit">Submit Request</button>
             </form>
+            
+            <div id="statusMessage" style="margin-top: 20px; text-align: center; font-weight: bold;"></div>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="footer-info">
             <p>&copy; 2026 Glam Team | Glamstocks</p>
-
             <div class="social-icons">
                 <a href="#"><img src="/images copy/download (1).png" alt="X"></a>
                 <a href="#"><img src="/images copy/download.jpeg" alt="Instagram"></a>
@@ -57,5 +66,51 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('deliveryForm');
+            const dateInput = document.getElementById('deliveryDate');
+            const totalDisplay = document.getElementById('totalCost');
+            const summaryBox = document.getElementById('summaryBox');
+            const statusMsg = document.getElementById('statusMessage');
+
+            // 1. ROBUSTNESS: Prevent selecting dates in the past
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+
+            // 2. DYNAMIC INTERACTION: Update price live when radio buttons are clicked
+            form.addEventListener('change', (e) => {
+                if (e.target.name === 'deliveryType') {
+                    summaryBox.style.display = 'block';
+                    totalDisplay.textContent = e.target.value;
+                }
+            });
+
+            // 3. FORM SUBMISSION: Generate ID and Save Data
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Generate a unique reference number
+                const generatedID = "GS-" + Math.floor(1000 + Math.random() * 9000);
+                
+                // SAVE the ID to the browser memory (Used by tracking page)
+                localStorage.setItem('latestOrderID', generatedID);
+                localStorage.setItem('latestOrderBrand', 'Rare Beauty'); 
+
+                // Feedback to the user
+                statusMsg.innerHTML = `✅ <strong>Order Confirmed!</strong><br>Your Tracking ID: <strong>${generatedID}</strong>`;
+                
+                // Keep the record visible for 10 seconds
+                setTimeout(() => {
+                    statusMsg.innerHTML = "<em>Order logged. Reference: " + generatedID + "</em>";
+                }, 10000);
+
+                form.reset();
+                summaryBox.style.display = 'none';
+            });
+
+            console.log("Glamstocks Delivery System Initialized.");
+        });
+    </script>
 </body>
 </html>
