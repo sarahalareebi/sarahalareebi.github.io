@@ -1,10 +1,22 @@
-Project title
-a short description of what this project does and who its for
+# Glamstocks Website
 
-installation
-How to install
+This project is a logistics dashboard website called Glamstocks.
 
-usage
+It allows users to:
+- View products from different brands (L’Oréal, NYX, Too Faced)
+- Navigate through pages like Dashboard, Orders, Delivery, Inventory, and Contact
+- Explore a styled interface with custom fonts and hover effects
 
-Authors
-Sarah
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+
+## Features
+- Responsive navigation bar
+- Product pages for multiple brands
+- Custom styling using Amoria font
+- Hover glow effects
+
+## Author
+Sarah Al-Areebi
